@@ -17,8 +17,9 @@ use crate::dom::bindings::cell::DomRefCell;
 use crate::dom::bindings::codegen::Bindings::ClipboardBinding::{
     ClipboardItemMethods, ClipboardItemOptions, PresentationStyle,
 };
+use js::conversions::SafeFromJSValConvertible;
 use crate::dom::bindings::conversions::{
-    ConversionResult, SafeFromJSValConvertible, StringificationBehavior,
+    ConversionResult, StringificationBehavior,
 };
 use crate::dom::bindings::error::{Error, Fallible};
 use crate::dom::bindings::frozenarray::CachedFrozenArray;
@@ -49,7 +50,7 @@ impl Callback for RepresentationDataPromiseFulfillmentHandler {
         if v.get().is_string() {
             // 1.1 Let dataAsBytes be the result of UTF-8 encoding v.
             let data_as_bytes = match DOMString::safe_from_jsval(
-                cx.into(),
+                cx
                 v,
                 StringificationBehavior::Default,
                 can_gc,

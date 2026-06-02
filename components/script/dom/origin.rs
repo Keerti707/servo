@@ -9,8 +9,9 @@ use servo_url::{ImmutableOrigin, ServoUrl};
 
 use crate::dom::bindings::codegen::Bindings::OriginBinding::OriginMethods;
 use crate::dom::bindings::conversions::{
-    ConversionResult, SafeFromJSValConvertible, StringificationBehavior, root_from_handlevalue,
+    ConversionResult, StringificationBehavior, root_from_handlevalue,
 };
+use js::conversions::SafeFromJSValConvertible;
 use crate::dom::bindings::error::{Error, Fallible};
 use crate::dom::bindings::reflector::{Reflector, reflect_dom_object_with_proto};
 use crate::dom::bindings::root::DomRoot;
